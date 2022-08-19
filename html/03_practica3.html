@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Formulario</title>
+</head>
+<body>
+    <form action="">
+        <label for="nombre">Nombre:</label>
+        <!-- 
+            El atributo name lo que espera el servidor (Backend) 
+            El atributo id es el medio para ser identificado desde JS
+        -->
+        <input name="nombre" type="text" id="nombre">
+        <br><br>
+        <label for="apPaterno">Apellido Paterno:</label>
+        <input name="apPaterno" type="text" id="apPaterno">
+        <br><br>
+        <input type="password" name="password" id="password" placeholder="password">
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" placeholder="email" required>
+        <br><br>
+        <label for="sex">Sexo</label>
+        <br>
+        <input type="radio" name="sex" id="sex_hombre">Hombre
+        <input type="radio" name="sex" id="sex_mujer">Mujer
+        <br><br>
+        <input type="submit">
+
+    </form>
+</body>
+</html>

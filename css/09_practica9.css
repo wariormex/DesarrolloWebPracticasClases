@@ -1,0 +1,19 @@
+p{
+    color: red;
+    font-weight: bold;
+}
+h1{
+    color:blue;
+    background-color: red;
+}
+ul{
+    border: 3px solid #cccccc;
+}
+li{
+    color: rgb(29,255,98);
+    font-size:18pt;
+}
+body{
+    background-color: rgb(255,255,255);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

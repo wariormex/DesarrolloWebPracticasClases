@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Variables JS</title>
+</head>
+<body>
+    <h1>Prueba Variables JS</h1>
+    <script>
+        function sum(a,b){
+            return a+b
+        }
+        console.log("sum: ",sum(3,4))
+
+        function varTest(){
+            var x = 30
+            if(true){
+                var x = 90
+                console.log("var: ",x)
+            }
+            console.log("var: ",x)
+        }
+
+        function letTest(){
+            let x = 30
+            if(true){
+                let x = 90
+                console.log("let: ",x)
+            }
+            console.log("let: ",x)
+        }
+        console.log("----------Var Test----------")
+        varTest()
+        console.log("----------Let Test----------")
+        letTest()
+        console.log("----------Const Test----------")
+        const z = 30
+        //z = 10
+        console.log("const: ", z)
+
+        console.log("----------Object Test----------")
+        let auto = {
+            marca: "Ford",
+            subMarca: "Bronco",
+            modelo: 2020
+        }
+
+        console.log(auto.marca)
+        console.log(auto['modelo'])
+
+        console.log("----------Array Test----------")
+        a=[1,2,3,4,5]
+        for(i=0;i<a.length;i++){
+            console.log(a[i])
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
