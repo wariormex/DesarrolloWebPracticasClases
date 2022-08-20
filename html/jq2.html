@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        thead{
+            font-weight: bold;
+        }
+        table,td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Agrega Registro</button>
+    <br><br>
+    <table id="tabla1">
+        <thead>
+            <tr>
+                <td>Nombre</td>
+                <td>Apellido Paterno</td>
+                <td>Apellido Materno</td>
+                <td>Edad</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Francisco</td>
+                <td>Vazquez</td>
+                <td>Gomez</td>
+                <td>46</td>
+            </tr>
+            <tr>
+                <td>Juliana</td>
+                <td>Vazquez</td>
+                <td>Salcedo</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>Marina</td>
+                <td>Vazquez</td>
+                <td>Guarner</td>
+                <td>60</td>
+            </tr>
+            <tr>
+                <td>Marina</td>
+                <td>Vazquez</td>
+                <td>Fernandez</td>
+                <td>70</td>
+            </tr>
+        </tbody>
+    </table>
+    <table id="reto3">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+    <br><br>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro facilis sit nisi, magnam dolorem maiores. Provident dolorum facilis ullam nostrum, illum qui corrupti sapiente temporibus commodi ea sunt placeat inventore?</p>
+    <br><br>
+    <input type="text" id="caja" style="width:450px">
+
+
+    <script>
+        $(function(){
+            $("#tabla1 tr:odd").css("background","#c1c1c1");
+            $("p").mouseenter(function(){
+                $(this).hide(1000);
+            });
+            $("p").mouseleave(function(){
+                $(this).show(1000);
+            });
+            $("#reto3 tr").mouseover(function(){
+                $(this).css("background","yellow");
+            });
+            $("#reto3 tr").mouseleave(function(){
+                $(this).css("background","white");
+            });
+            $("#tabla1 tr").dblclick(function(){
+                /*$("#caja").val($(this).text());*/
+                $("#caja").val($(this).find("td").eq(2).text());
+            });
+            $("btn").click(function(){
+                var contenido = "<tr><td>Mario</td><td>Valencia</td><td>Torres</td><td>40</td></tr>";
+                /*$("#tabla1 tr:last").after(contenido);*/
+                $("#tabla1 tbody").append(contenido);
+            });
+        });
+
+    </script>
+</body>
+</html>

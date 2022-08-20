@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .color_rojo{
+            color: red;
+            background-color: aqua;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery</h1>
+    <p class="color_rojo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi mollitia officia repellendus, ducimus sit animi corporis. Voluptatem quo esse numquam. Provident, natus. Rerum eaque atque, id non debitis fugiat nihil.</p>
+    <button id="btn1">Oculta Parrafo</button>
+    <br><br>
+    <script>
+        $(function(){
+            console.log("Documento cargado");
+            $('#btn1').click(function(){
+                $('.color_rojo').toggle();
+            });
+        });
+    </script>
+
+    
+</body>
+</html>
