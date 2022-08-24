@@ -16,12 +16,19 @@
     <button id="btn3">Slide Down</button>
     <button id="btn4">Slide Up</button>
     <button id="btn5">Move</button>
+    <button id="btn6">Encadenamiento</button>
+    <button id="btn7">Obtener</button>
     <br><br>
     <img id="img1" src="http://source.unsplash.com/random/200x200" style="width:50%">
     <br><br>
     <div id="cajaRoja" style="background-color: red; height: 100px; width: 100px; position: absolute;">
-
     </div>
+    <br><br>
+    <br><br>
+    <br><br>
+    <p id = "p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe omnis asperiores ab, provident voluptatum modi dolorum quidem harum, neque porro doloribus velit assumenda dolor fugit accusantium repellendus debitis odit deleniti!</p>
+    <br><br>
+    <p id = "p2">Parrafo 2 <span style="color:blue;">Texto Azul</span> lo demas</p>
     <script>
         $(function(){
             $("#btn1").click(function(){
@@ -45,6 +52,12 @@
                     height:"200px"
 
                 },3000);
+            });
+            $("#btn6").click(function(){
+                $("#p1").css("color","red").slideUp(2000).slideDown(2000);
+            });
+            $("#btn7").click(function(){
+                alert($("#p2").html);
             });
         });
     </script>

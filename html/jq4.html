@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <button id="btnRemove">Remove</button>
+    <button id="btnEmpty">Empty</button>
+    <button id="btnAddText">Add text</button>
+    <p id="p1">Texto Base</p>
+    <div id="div1">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel accusamus sed pariatur unde a, totam magni explicabo modi velit nobis similique libero illo esse! Nesciunt perferendis repellendus magnam eius harum?
+        </p>
+        <button>Prueba...</button>
+    </div>
+    <script>
+    $(function(){
+        $("#btnRemove").click(function(){
+            $("#div1").remove();
+        });
+        $("#btnEmpty").click(function(){
+            $("#div1").empty();
+        });
+        $("#btnAddText").click(function(){
+            $("#p1").append(" + Texto Agregado").css("color","red");
+        });
+    });
+    </script>
+</body>
+</html>

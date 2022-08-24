@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitio responsivo por columnas</title>
+    <style>
+        *{ box-sizing: border-box;}
+        .row::After{
+            content:"";
+            clear:both;
+            display:table;
+        }
+        [class*="col-"]{
+            float:left;
+            padding: 15px;
+            width: 100%;
+        }
+        .header{
+            color: #FFFFFF;
+            background-color: #9933cc;
+            padding: 15px;
+            text-align:center;
+        }
+        .menu ul{
+            list-style-type: none;
+            margin: 0;
+            padding:0;
+        }
+        .menu li{
+            padding: 8px;
+            margin-bottom: 7px;
+            background-color: #33b5e5;
+            color: #ffffff;
+        }
+        .menu li:hover{
+            background-color: #0099cc;
+            box-shadow: 0 2px 20px 0 rgba(46,38,216,0.7);
+        }
+        .aside{
+            background-color: #33b5e5;
+            padding: 15px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+        }
+        .aside:hover{
+            box-shadow: 0 2px 20px 0 rgba(46,38,216,0.7);
+        }
+        .footer{
+            background-color: #0099cc;
+            color: #ffffff;
+            text-align: center;
+            font-size: 12px;
+            padding:15px;
+        }
+        @media(min-width: 600px){
+            .col-s-1{width: 8.33%}
+            .col-s-2{width: 16.66%}
+            .col-s-3{width: 25%}
+            .col-s-4{width: 33.33%}
+            .col-s-5{width: 41.66%}
+            .col-s-6{width: 50%}
+            .col-s-7{width: 58.33%}
+            .col-s-8{width: 66.66%}
+            .col-s-9{width: 75%}
+            .col-s-10{width: 83.33%}
+            .col-s-11{width: 91.66%}
+            .col-s-12{width: 100%}
+        }
+        @media(min-width: 768px){
+            .col-1{width: 8.33%}
+            .col-2{width: 16.66%}
+            .col-3{width: 25%}
+            .col-4{width: 33.33%}
+            .col-5{width: 41.66%}
+            .col-6{width: 50%}
+            .col-7{width: 58.33%}
+            .col-8{width: 66.66%}
+            .col-9{width: 75%}
+            .col-10{width: 83.33%}
+            .col-11{width: 91.66%}
+            .col-12{width: 100%}
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Mexico</h1>
+    </div>
+    <div class="row">
+        <div class="col-3 col-s-3 menu">
+            <ul>
+                <li>Vuelo</li>
+                <li>Ciudad</li>
+                <li>Vida en la Ciudad</li>
+                <li>Comida</li>
+            </ul>
+        </div>
+        <div class="col-6 col-s-9" style="text-align: justify;">
+            <h1>La ciudad</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, asperiores! Odit est fuga iste eum, sint voluptas, fugit nisi adipisci maiores dolores consequuntur. Recusandae, mollitia voluptatum. Soluta minus aspernatur sit.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nemo quam perspiciatis quod, vero repudiandae aut, quos esse nostrum, dignissimos animi est harum tempora velit nobis necessitatibus laudantium maiores quas!</p>
+
+        </div>
+        <div class="col-3 col-s-12 menu">
+            <div class="aside">
+                <h2>Que?</h2>
+                <p>Mexico es es es es es es es </p>
+                <h2>Donde?</h2>
+                <p>Mexico es es es es es es es </p>
+                <h2>Como?</h2>
+                <p>Mexico es es es es es es es </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis sapiente cum amet ea qui, illum nobis quidem. Praesentium aliquid culpa dolor, eum temporibus est fugiat iste numquam non quod? Perferendis.
+        Accusantium, harum. Animi qui modi maiores, omnis cumque odit, maxime officia porro possimus quia quam eius est et optio expedita soluta, nulla ratione error. Illum ipsam eos voluptas quasi voluptate.</p>
+    </div>
+</body>
+</html>
