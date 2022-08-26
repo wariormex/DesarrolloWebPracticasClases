@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <button id="btn1">Realiza consulta</button>
+    <script>
+        function consultaPremiados(){
+            my_url = "https://api.nobelprize.org/v1/prize.json?category=physics&year=2000&yearto=2010";
+            $.ajax({
+                method: "GET",
+                url: my_url
+            }).done(function(data){
+                //console.log(data);
+                recorrePremiados(data.prizes);
+            }).fail(function(error){
+                console.log(error);
+            }).always(function(data){
+                console.log("GET ejecutado...");
+            });
+        }
+
+        function recorrePremiados(data) {
+            $.each(data, function(){
+                console.log(this.year + " " + this.category);
+            });
+        }
+
+        $(function() {
+            $("#btn1").click(function(){
+                consultaPremiados();
+            });
+        });
+    </script>
+</body>
+</html>
