@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+    1.- Despues de realizar la consulta de AJAX. 
+    2.- Construye cada uno de los renglones que se van a agregar a la tabla
+    3.- Cada vez que se realiza la consulta, se elimina el contenido de tbody con el método empty 
+    4.- Despues de crear la tabla, se coloca un css, para mostrar los renglones impares con fondo gris 
+    -->
+
+    <!-- 
+    1.- table_header, método para colocar el header de la tabla y el contenido el select
+    2.- Desde que se crea el DOM se realiza la consulta mediante AJAX. 
+    3.- Se programa la funcionalidad del keypress
+    4.- Se realiza la función filter_information para filtrar la información de acuerdo al texto escrito por el usuario. 
+    -->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        thead{
+            font-weight: bold;
+        }
+        table,td{
+            border: 1px solid black;
+        }
+        img{
+            width:200px;
+            height: 200px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">Realiza consulta</button>
+    <select name="Category" id="selector">
+        <option value="0">Name</option>
+        <option value="1">Image</option>
+        <option value="2">Hp</option>
+        <option value="3">Attack</option>
+        <option value="4">Defense</option>
+        <option value="5">Special</option>
+      </select>
+    <input type="text" id="filterInput" onkeyup="filterTable()" placeholder="Search for...">
+    <br><br>
+    <table id="tabla1">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Image</td>
+                <td>Hp</td>
+                <td>Attack</td>
+                <td>Defense</td>
+                <td>Special</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+
+        const fetchData = async (id) => {
+        try {
+            console.log(id);
+
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+            const data = await res.json();
+
+            console.log(data);
+
+            const pokemon = {
+            img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
+            imgGame: data.sprites.front_default,
+            imgCvg: data.sprites.other.dream_world.front_default,
+            name: data.name,
+            exp: data.base_experience,
+            hp: data.stats[0].base_stat,
+            atk: data.stats[1].base_stat,
+            def: data.stats[2].base_stat,
+            special: data.stats[3].base_stat,
+            };
+            generateTable(pokemon);
+
+        } catch (error) {
+            console.log(error);
+        }
+        };
+        
+
+        function generateTable(pokemon) {
+            /*
+            $.each(data, function(){
+                createRow(this);
+            });
+            */
+            createRow(pokemon);
+            $("tr:odd").css("background-color","#c1c1c1");
+        }
+
+        function createRow(pokemon){
+            var tr = "<tr>sust</tr>";
+            var td = "<td>sust</td>";
+            var img = "<img src='"+pokemon.imgCvg+"'>"
+            var row =   td.replace("sust",pokemon.name) +
+                        td.replace("sust",img) +
+                        td.replace("sust",pokemon.hp) +
+                        td.replace("sust",pokemon.atk) +
+                        td.replace("sust",pokemon.def) +
+                        td.replace("sust",pokemon.special);
+            row = tr.replace("sust", row);
+            $("#tabla1 tbody").append(row);
+                    
+        }
+
+        function filterTable() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue, selectorValue;
+            input = document.getElementById("filterInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("tabla1");
+            tr = table.getElementsByTagName("tr");
+            selectorValue = document.getElementById("selector").value;
+            console.log(selectorValue);
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[selectorValue];
+                if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+                }
+            }
+        }
+
+        $(function() {
+            $("#btn1").click(function(){
+                $("#tabla1 tbody").empty();
+                for (var i = 1; i < 11; i++){
+                    fetchData(i);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
