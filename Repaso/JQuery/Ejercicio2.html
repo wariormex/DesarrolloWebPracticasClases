@@ -27,6 +27,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
     <h2>Por favor llene los datos que se solicitan:</h2>
@@ -43,5 +44,25 @@
     <br /><br />
     <label for="txtRFC">RFC: </label>
     <input type="text" id="txtRFC" disabled />
+    <script>
+      $(function(){
+        $('#btnRFC').click(function(){
+          var fName = $("#txtNom").val();
+          var pSurname = $("#txtApeP").val();
+          var mSurname = $("#txtApeM").val();
+          var bDay = $("#txtFNac").val().split("/");
+
+          if(fName == "" || pSurname == "" || mSurname == "" || bDay == ""){
+            alert("Please fill all fields to continue!");
+          }else{
+            console
+              var RFC = pSurname.substr(0,2).toUpperCase() + mSurname.substr(0,1).toUpperCase() +
+              fName.substr(0,1).toUpperCase() + bDay[2].substr(2,2) + bDay[1] + bDay[0];
+              $("#txtRFC").prop("disabled", false);
+            $("#txtRFC").val(RFC);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
