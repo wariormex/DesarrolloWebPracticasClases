@@ -12,7 +12,11 @@
 5.- Para el DIV que tiene el id="myBlueDiv", utiliza la propiedad align-self:center; 
 6.- Aqui en los comentarios, coloca una descripción de lo que hace la propiedad "flex"
 Comentarios: 
-
+La propiedad flex permite que los elementos flexibles puedan ajustar sus dimensiones para llenar la
+pantalla, en el caso del DIV #main, sus contenidos seran ajustados a base de flex, ya que se convirtio en un elemto
+de tipo flex, los elementos se alinearan empezando del "inicio" del contenedor flex, en este caso la esquina superior izquierda,
+con excepcion del elemento #myBlueDiv que sera alineado independientemente en el centro a base de su posicion consecutiva con el resto 
+de los elementos y el eje central del contenedor flex. 
 
 
 
@@ -24,6 +28,21 @@ Comentarios:
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 2</title>
+    <style>
+      p, h1{
+        color: #111111;
+      }
+      #main{
+        width: 250px;
+        height: 300px;
+        border: 2px solid black;
+        display: flex;
+        align-items: flex-start;
+      }
+      #myBlueDiv{
+        align-self: center;
+      }
+    </style>
   </head>
   <body>
     <h1>Encabezado 1</h1>

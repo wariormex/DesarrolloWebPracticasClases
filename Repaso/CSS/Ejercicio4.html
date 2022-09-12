@@ -12,6 +12,10 @@
     border-image: url(border.png) 15 stretch; 
 6.- Concluya, investigue su funcionamiento. 
 Comentario Respuesta: 
+border-image permite el uso de imagenes como borde de un elemento, el elemento a repetir en el borde
+puede ser desplegado de distintas maneras, la modalidad round (bitmap repeated), distribuye el elemento de manera que los extremos
+se conecten bien, la modalidad stretched (bitmap stretched) estira la imagen para rellenar toda la area del borde del elemento, el numero
+en border-image modifica la propiedad border-image-slice para ver como se cortaraq la imagen que sera colocada como borde
 
 
 -->
@@ -22,6 +26,13 @@ Comentario Respuesta:
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 4</title>
+    <style>
+      #borderimg1{
+        border: 10px solid transparent;
+        padding: 20px;
+        border-image: url(border.png) 15 round;
+      }
+    </style>
   </head>
   <body>
     <p id="borderimg1">
